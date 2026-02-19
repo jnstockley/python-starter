@@ -90,6 +90,15 @@ jobs:
           scanners: 'vuln,secret,misconfig'
           severity: 'CRITICAL,HIGH'
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install UV
+        uses: astral-sh/setup-uv@v5
+      
+      - name: Export requirements.txt from UV
+        run: uv export --no-dev --no-hashes -o requirements.txt
+
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
