@@ -98,6 +98,9 @@ jobs:
           path: '.'
           format: 'SARIF'
           out: 'reports' # this is the default, no need to specify unless you wish to override it
+          args: >
+            --enableExperimental
+            --disableAssembly
 
       - run: cat reports/dependency-check-report.sarif
   
